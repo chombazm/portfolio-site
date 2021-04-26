@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Webpage</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- 
+User Story #1: My portfolio should have a welcome section with an id of welcome-section.
+
+User Story #2: The welcome section should have an h1 element that contains text.
+
+User Story #3: My portfolio should have a projects section with an id of projects.
+
+User Story #4: The projects section should contain at least one element with a class of project-tile to hold a project.
+
+User Story #5: The projects section should contain at least one link to a project.
+
+//User Story #6: My portfolio should have a navbar with an id of navbar.
+
+User Story #7: The navbar should contain at least one link that I can click on to navigate to different sections of the page.
+
+User Story #8: My portfolio should have a link with an id of profile-link, which opens my GitHub or FCC profile in a new tab.
+
+User Story #9: My portfolio should have at least one media query.
+
+User Story #10: The height of the welcome section should be equal to the height of the viewport.
+
+User Story #11: The navbar should always be at the top of the viewport. 
+-->
+<header class="header-elem">
+    <nav id="navbar">
+        <div class="logo-box">
+            <a href="#!">.chomba</a>
+        </div>
+        <ul class="main-link">
+            <li><a href="#!">.projects</a></li>
+            <li><a href="#skills">.skills</a></li>
+            <li><a href="#!">.contact</a></li>
+
+            <li class="social-link">
+                <a href="https://twitter.com/chombazm">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="24" height="24"
+                    viewBox="0 0 172 172"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M172,30.82226c-6.4388,2.85547 -12.9056,5.01107 -20.07226,5.73894c7.16667,-4.3112 12.9056,-11.47787 15.76107,-19.3724c-7.16667,4.31119 -14.33333,7.16667 -22.19988,8.6224c-7.16667,-7.16667 -16.48893,-11.47787 -26.51106,-11.47787c-19.3724,0 -35.13347,15.76107 -35.13347,35.10547c0,2.88346 0,5.73893 0.72786,7.89453c-29.39453,-1.42774 -55.17773,-15.06119 -72.39453,-36.56119c-3.58333,5.03906 -5.01107,11.47786 -5.01107,17.91667c0,12.20573 6.43881,22.95573 15.76107,29.39453c-5.73893,-0.72786 -11.44987,-2.1556 -15.76107,-4.31119c0,0 0,0 0,0.72786c0,17.18881 12.17774,31.52214 27.93881,34.4056c-2.85547,0.69988 -5.71094,1.42774 -9.29427,1.42774c-2.1556,0 -4.3112,0 -6.4668,-0.72786c4.31119,14.33333 17.2168,24.38346 32.97786,24.38346c-12.17773,9.32227 -27.23893,15.03321 -43.72786,15.03321c-2.85547,0 -5.73893,0 -8.5944,-0.69988c15.76107,10.02214 34.4056,15.76107 53.75,15.76107c65.22787,0 100.33333,-53.75 100.33333,-100.33333c0,-1.42774 0,-2.85547 0,-4.31119c7.16667,-5.01107 12.9056,-11.44988 17.91667,-18.61654"></path></g></g></svg>
+                </a>
+                <a href="https://github.com/luxaintcc" target="_blank" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="24" height="24"
+                    viewBox="0 0 172 172"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M78.11667,15.05c-32.96667,3.58333 -59.48333,30.1 -63.06667,62.35c-3.58333,33.68333 15.76667,63.78333 45.15,75.25c2.15,0.71667 4.3,-0.71667 4.3,-3.58333v-11.46667c0,0 -2.86667,0.71667 -6.45,0.71667c-10.03333,0 -14.33333,-8.6 -15.05,-13.61667c-0.71667,-2.86667 -2.15,-5.01667 -4.3,-7.16667c-2.15,-0.71667 -2.86667,-0.71667 -2.86667,-1.43333c0,-1.43333 2.15,-1.43333 2.86667,-1.43333c4.3,0 7.88333,5.01667 9.31667,7.16667c3.58333,5.73333 7.88333,7.16667 10.03333,7.16667c2.86667,0 5.01667,-0.71667 6.45,-1.43333c0.71667,-5.01667 2.86667,-10.03333 7.16667,-12.9c-16.48333,-3.58333 -28.66667,-12.9 -28.66667,-28.66667c0,-7.88333 3.58333,-15.76667 8.6,-21.5c-0.71667,-1.43333 -1.43333,-5.01667 -1.43333,-10.03333c0,-2.86667 0,-7.16667 2.15,-11.46667c0,0 10.03333,0 20.06667,9.31667c3.58333,-1.43333 8.6,-2.15 13.61667,-2.15c5.01667,0 10.03333,0.71667 14.33333,2.15c9.31667,-9.31667 20.06667,-9.31667 20.06667,-9.31667c1.43333,4.3 1.43333,8.6 1.43333,11.46667c0,5.73333 -0.71667,8.6 -1.43333,10.03333c5.01667,5.73333 8.6,12.9 8.6,21.5c0,15.76667 -12.18333,25.08333 -28.66667,28.66667c4.3,3.58333 7.16667,10.03333 7.16667,16.48333v18.63333c0,2.15 2.15,4.3 5.01667,3.58333c26.51667,-10.75 45.15,-36.55 45.15,-66.65c0,-43 -36.55,-76.68333 -79.55,-71.66667z"></path></g></g></svg>
+                </a>
+                
+                
+                <a href="https://www.linkedin.com/in/chomba-chanda-bab8ab20b/" target="_blank" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="22" height="22"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M139.75,0h-107.5c-17.80469,0 -32.25,14.44531 -32.25,32.25v107.5c0,17.80469 14.44531,32.25 32.25,32.25h107.5c17.80469,0 32.25,-14.44531 32.25,-32.25v-107.5c0,-17.80469 -14.44531,-32.25 -32.25,-32.25zM53.18149,146.00361h-26.71996l-0.15504,-80.00481h26.71995zM39.14964,55.53305h-0.15505c-8.73437,0 -14.36779,-6.02103 -14.36779,-13.51502c0,-7.67488 5.81431,-13.48919 14.70373,-13.48919c8.88942,0 14.34194,5.8143 14.52283,13.48919c0,7.49399 -5.65926,13.51502 -14.70372,13.51502zM145.82272,146.00361h-26.95253v-43.46515c0,-10.51743 -2.79087,-17.67548 -12.19712,-17.67548c-7.18389,0 -11.0601,4.83233 -12.92067,9.50962c-0.69772,1.67969 -0.8786,3.97957 -0.8786,6.33113v45.29988h-27.08173l-0.15505,-80.00481h27.08173l0.15505,11.29267c3.46274,-5.34916 9.22536,-12.92067 23.02463,-12.92067c17.10697,0 29.89844,11.16346 29.89844,35.17007v46.46274z"></path></g></g></svg>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+
+
+    <main id="div-ya-block">
+        <div class="static-container">
+            <section id="welcome-section" class="section-ya-normal">
+            <h1 class="welcome-text" >Chomba<span class="chi-stop">.</span> </h1>
+            <div class="mgs"></div>
+            <ul class="socials-chomba">
+                <li>
+                    <a href="https://twitter.com/chombazm">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="16" height="16"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M172,30.82226c-6.4388,2.85547 -12.9056,5.01107 -20.07226,5.73894c7.16667,-4.3112 12.9056,-11.47787 15.76107,-19.3724c-7.16667,4.31119 -14.33333,7.16667 -22.19988,8.6224c-7.16667,-7.16667 -16.48893,-11.47787 -26.51106,-11.47787c-19.3724,0 -35.13347,15.76107 -35.13347,35.10547c0,2.88346 0,5.73893 0.72786,7.89453c-29.39453,-1.42774 -55.17773,-15.06119 -72.39453,-36.56119c-3.58333,5.03906 -5.01107,11.47786 -5.01107,17.91667c0,12.20573 6.43881,22.95573 15.76107,29.39453c-5.73893,-0.72786 -11.44987,-2.1556 -15.76107,-4.31119c0,0 0,0 0,0.72786c0,17.18881 12.17774,31.52214 27.93881,34.4056c-2.85547,0.69988 -5.71094,1.42774 -9.29427,1.42774c-2.1556,0 -4.3112,0 -6.4668,-0.72786c4.31119,14.33333 17.2168,24.38346 32.97786,24.38346c-12.17773,9.32227 -27.23893,15.03321 -43.72786,15.03321c-2.85547,0 -5.73893,0 -8.5944,-0.69988c15.76107,10.02214 34.4056,15.76107 53.75,15.76107c65.22787,0 100.33333,-53.75 100.33333,-100.33333c0,-1.42774 0,-2.85547 0,-4.31119c7.16667,-5.01107 12.9056,-11.44988 17.91667,-18.61654"></path></g></g></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/luxaintcc" target="_blank" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="20" height="20"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M78.11667,15.05c-32.96667,3.58333 -59.48333,30.1 -63.06667,62.35c-3.58333,33.68333 15.76667,63.78333 45.15,75.25c2.15,0.71667 4.3,-0.71667 4.3,-3.58333v-11.46667c0,0 -2.86667,0.71667 -6.45,0.71667c-10.03333,0 -14.33333,-8.6 -15.05,-13.61667c-0.71667,-2.86667 -2.15,-5.01667 -4.3,-7.16667c-2.15,-0.71667 -2.86667,-0.71667 -2.86667,-1.43333c0,-1.43333 2.15,-1.43333 2.86667,-1.43333c4.3,0 7.88333,5.01667 9.31667,7.16667c3.58333,5.73333 7.88333,7.16667 10.03333,7.16667c2.86667,0 5.01667,-0.71667 6.45,-1.43333c0.71667,-5.01667 2.86667,-10.03333 7.16667,-12.9c-16.48333,-3.58333 -28.66667,-12.9 -28.66667,-28.66667c0,-7.88333 3.58333,-15.76667 8.6,-21.5c-0.71667,-1.43333 -1.43333,-5.01667 -1.43333,-10.03333c0,-2.86667 0,-7.16667 2.15,-11.46667c0,0 10.03333,0 20.06667,9.31667c3.58333,-1.43333 8.6,-2.15 13.61667,-2.15c5.01667,0 10.03333,0.71667 14.33333,2.15c9.31667,-9.31667 20.06667,-9.31667 20.06667,-9.31667c1.43333,4.3 1.43333,8.6 1.43333,11.46667c0,5.73333 -0.71667,8.6 -1.43333,10.03333c5.01667,5.73333 8.6,12.9 8.6,21.5c0,15.76667 -12.18333,25.08333 -28.66667,28.66667c4.3,3.58333 7.16667,10.03333 7.16667,16.48333v18.63333c0,2.15 2.15,4.3 5.01667,3.58333c26.51667,-10.75 45.15,-36.55 45.15,-66.65c0,-43 -36.55,-76.68333 -79.55,-71.66667z"></path></g></g></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/chomba-chanda-bab8ab20b/" target="_blank" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="18" height="18"
+    viewBox="0 0 172 172"
+    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e92a2a"><path d="M139.75,0h-107.5c-17.80469,0 -32.25,14.44531 -32.25,32.25v107.5c0,17.80469 14.44531,32.25 32.25,32.25h107.5c17.80469,0 32.25,-14.44531 32.25,-32.25v-107.5c0,-17.80469 -14.44531,-32.25 -32.25,-32.25zM53.18149,146.00361h-26.71996l-0.15504,-80.00481h26.71995zM39.14964,55.53305h-0.15505c-8.73437,0 -14.36779,-6.02103 -14.36779,-13.51502c0,-7.67488 5.81431,-13.48919 14.70373,-13.48919c8.88942,0 14.34194,5.8143 14.52283,13.48919c0,7.49399 -5.65926,13.51502 -14.70372,13.51502zM145.82272,146.00361h-26.95253v-43.46515c0,-10.51743 -2.79087,-17.67548 -12.19712,-17.67548c-7.18389,0 -11.0601,4.83233 -12.92067,9.50962c-0.69772,1.67969 -0.8786,3.97957 -0.8786,6.33113v45.29988h-27.08173l-0.15505,-80.00481h27.08173l0.15505,11.29267c3.46274,-5.34916 9.22536,-12.92067 23.02463,-12.92067c17.10697,0 29.89844,11.16346 29.89844,35.17007v46.46274z"></path></g></g></svg>
+                    </a>
+                </li>
+                <li class="frce-grey">
+                    Download my
+                    <a class="download-btn" href="#!" target="_blank" title="Download Resume" class="bt">
+                      resume
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="ico"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8 11.4l3.3-2.9m-6.6 0L8 11.4V.5M.5 10.8v4.7h15v-4.7"></path></svg></a></li>
+            </ul>
+            <div class="mgs"></div>
+            <p class="descriptor">
+                I Leverage technical, analytical and problem-solving 
+                skills to create dynamic, high-speed websites and platforms.
+                <!-- I am a creative full-stack developer, designer and youtuber.
+                From Zambia, based in Lusaka. -->
+                
+                <div class="mgs"></div>
+
+                <span class="clr-txt" >
+                    // 2+ years of experience
+                </span>
+            </p>
+        </section>
+
+<div class="mgs"></div>
+        <section class="section-ya-normal" id="skills">
+            <h2 class="clear-heading">Main Skills</h2>
+            <div class="mgs"></div> 
+            <div class="box-na-four-boxes">
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>HTML/ +3</li>
+                        <li>CSS/ +3</li>
+                    </ul>
+                </div>
+                
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>PHP/ +3</li>
+                        <li>Laravel/ +1</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>Wordpress/ +2</li>
+                        <li>woocommerce/ +1</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>Git /+1</li>
+                        <li>Linux | terminal/ +2</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mgs"></div>
+            <div class="box-na-four-boxes">
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>Javascript/ +1</li>
+                        <li>React/ 2 Months</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>SQL/ +3</li>
+                        <li>Semantic-UI/ 1+</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>Photoshop/ +3</li>
+                        <li>Illustrator/ +3</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li>ftp /+2</li>
+                        <li>Apache +2</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mgx"></div>
+            
+            <h2 class="clear-heading">Experience</h2>
+            <div class="mgs"></div>
+
+            <div class="box-na-four-boxes">
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li><h4>Senior web Developer</h4></li>
+                        <li>@ <a href="#!">Trails Media Studio</a></li>
+                        <li>2017 - Now</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li><h4>web Developer</h4></li>
+                        <li>@ <a href="http://kadztech.com/">Kadztech</a></li>
+                        <li>2021 - Now </li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li><h4>Web developer</h4></li>
+                        <li>@ <a href="#!">zedclassicjams.co</a></li>
+                        <li>2020 - Now</li>
+                    </ul>
+                </div>
+                <div class="one-of-four-boxes">
+                    <ul>
+                        <li><h4>Backend Developer</h4></li>
+                        <li>@ <a href="#!">Kzone inityiative</a></li>
+                        <li>2020 - 2021</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+        
+
+        </div>  
+    </main>
+</body>
+</html>
