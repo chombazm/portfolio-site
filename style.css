@@ -67,6 +67,11 @@ a {
     color: var(--red);
     font-weight: 700;
 }
+.ribbon-warn {
+    background-color: #9a852e;
+    color: #fff;
+    text-align: center;
+}
 .liteTxt {
     font-weight: 300;
 }
